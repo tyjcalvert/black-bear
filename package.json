@@ -1,0 +1,22 @@
+{
+  "name": "black-bear",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tyjcalvert/black-bear.git"
+  },
+  "author": "Tyler Calvert",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tyjcalvert/black-bear/issues"
+  },
+  "homepage": "https://github.com/tyjcalvert/black-bear#readme",
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
+}
