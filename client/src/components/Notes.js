@@ -3,12 +3,10 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import Checkbox from '@mui/material/Checkbox';
 import IconButton from '@mui/material/IconButton';
 import CommentIcon from '@mui/icons-material/Comment';
 
-export default function TaskList({ tasks = [], numbered = false }) {
+export default function Notes({ notes = [], numbered = false }) {
   const [checked, setChecked] = React.useState([0]);
 
   const handleToggle = (value) => () => {
@@ -31,7 +29,7 @@ export default function TaskList({ tasks = [], numbered = false }) {
         bgcolor: 'background.paper',
       }}
     >
-      {tasks.map((value, i) => {
+      {notes.map((value, i) => {
         const labelId = `checkbox-list-label-${value}`;
 
         return (
@@ -44,24 +42,17 @@ export default function TaskList({ tasks = [], numbered = false }) {
             }
             disablePadding
           >
+            {numbered && <h4 style={{ marginLeft: '8px' }}>{i + 1 + ')'}</h4>}
             <ListItemButton
               role={undefined}
               onClick={handleToggle(value)}
               dense
             >
-              {numbered && (
-                <h4 style={{ marginRight: '12px' }}>{i + 1 + ')'}</h4>
-              )}
-              <ListItemIcon>
-                <Checkbox
-                  edge='start'
-                  checked={checked.indexOf(value) !== -1}
-                  tabIndex={-1}
-                  disableRipple
-                  inputProps={{ 'aria-labelledby': labelId }}
-                />
-              </ListItemIcon>
-              <ListItemText id={labelId} primary={`Line item ${value + 1}`} />
+              <ListItemText
+                sx={{ minHeight: '100px' }}
+                id={labelId}
+                primary={`Line item ${value + 1}`}
+              />
             </ListItemButton>
           </ListItem>
         );
